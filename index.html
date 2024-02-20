@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <style>
+        /* Add your CSS styles here */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: grey;
+            color: lightblue;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 2em;
+        }
+
+        .product-card {
+            border: 1px blue;
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em;
+            width: 300px;
+            background-color: #fff;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kayla's Clothing Store</h1>
+    </header>
+
+    <section id="products">
+        <!-- Product cards will go here -->
+    </section>
+
+    <script>
+        // You can add JavaScript functionality here
+        // For simplicity, you can hardcode some product data
+        const products = [
+            { id: 1, name: 'T-Shirt', price: 20, image: 'tshirt.jpg' },
+            { id: 2, name: 'Jeans', price: 50, image: 'jeans.jpg' },
+            { id: 3, name: 'Sweater', price: 30, image: 'sweater.jpg' }
+            // Add more products as needed
+        ];
+
+        const productsSection = document.getElementById('products');
+
+        // Display products on the page
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <h2>${product.name}</h2>
+                <img src="${product.image}" alt="${product.name}">
+                <p>Price: $${product.price}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            `;
+            productsSection.appendChild(card);
+        });
+
+        // Function to add a product to the cart
+        function addToCart(productId) {
+            // Implement cart functionality here
+            alert(`Product with ID ${productId} added to the cart`);
+        }
+    </script>
+
+</body>
+</html>
